@@ -6,7 +6,7 @@ This bundle plugin provides a plugin that will automatically unlock content that
 http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger for more information.
 
 ## To Configure Build
-Edit the properties in the src/resources/plugin.properties file to suit your needs. After that, from the root of the plugin directory, run ./gradle jar.  You can then drop the resulting ./build/libs/*.jar into your felix dir or upload it into your running dotCMS via the dynamic plugins screen.
+Edit the properties in the `src/resources/plugin.properties` file to suit your needs. After that, from the root of the plugin directory, run `./gradlew jar` from the command line.  You can then drop the resulting `./build/libs/*.jar` into your felix dir or upload it into your running dotCMS via the dynamic plugins screen.
 
 ## Other thoughts:
 On really large sites, you might want to drop an index on the contentlet_version_info.locked_on field which is used by the plugin to query for locked content.
