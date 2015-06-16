@@ -8,7 +8,7 @@ Override-Classes: com.dotcms.job.UnlockContentTimer
 DynamicImport-Package: *
 Bundle-Vendor: dotcms
 Bundle-Version: 0.1
-Bnd-LastModified: 1434476990000
+Bnd-LastModified: 1434478585000
 Bundle-ManifestVersion: 2
 Bundle-Activator: com.dotcms.job.Activator
 Bundle-Description: dotCMS Timed Unlock Contentlets
