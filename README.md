@@ -1,4 +1,4 @@
-* Timed Unlocking of Content
+# Timed Unlocking of Content
 
 Users are forgetful.  They start to change a piece of content and then leave it, forgetting to unlock it.  This leads to orphan content that can only be unlocked by an administrator.
 
@@ -7,6 +7,6 @@ http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger f
 
 
 
-Other thoughts:
+## Other thoughts:
 On really large sites, you might want to drop an index on the contentlet_version_info.locked_on field which is used by the plugin to query for locked content.
 
