@@ -1,4 +1,4 @@
-h1. Timed Unlocking of Content
+* Timed Unlocking of Content
 
 Users are forgetful.  They start to change a piece of content and then leave it, forgetting to unlock it.  This leads to orphan content that can only be unlocked by an administrator.
 
