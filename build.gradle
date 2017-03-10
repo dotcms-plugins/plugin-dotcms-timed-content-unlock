@@ -8,18 +8,18 @@ version = '0.1'
 
 
 repositories {
-	maven {
-        url "http://repo.dotcms.com/artifactory/libs-release"
-    }
+    maven { url "http://repo.dotcms.com/artifactory/libs-release" }
+    maven { url "http://repo.dotcms.com/artifactory/libs-snapshot-local" }
 }
 
 dependencies {
 	compile fileTree(dir: 'src/main/resources/libs', include: '*.jar')
-	compile (group: 'com.dotcms', name: 'dotcms', version: '3.2'){
-		transitive = true
-	}
-	providedCompile "javax.servlet:servlet-api:2.5"
+  compile (group: 'com.dotcms', name: 'dotcms', version: '4.0_b85e558-SNAPSHOT'){
+        transitive = true
+    }
+    providedCompile "javax.servlet:javax.servlet-api:3.1.0"
 }
+
 
 jar {
     manifest {
