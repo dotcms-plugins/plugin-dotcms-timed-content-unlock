@@ -10,6 +10,7 @@ import org.osgi.framework.BundleContext;
 
 import com.dotmarketing.osgi.GenericBundleActivator;
 import com.dotmarketing.quartz.CronScheduledTask;
+import com.dotmarketing.quartz.QuartzUtils;
 
 public class Activator extends GenericBundleActivator {
 
@@ -31,7 +32,7 @@ public class Activator extends GenericBundleActivator {
         publishBundleServices(context);
         Map<String, Object> params = new HashMap<String, Object>();
 
-        
+        QuartzUtils.removeJob(JOB_NAME, JOB_GROUP);
     	String unlock = OSGiPluginProperties.getProperty("UNLOCK_AFTER_SECONDS");
         int limit  = Integer.parseInt(OSGiPluginProperties.getProperty("SQL_LIMIT_CLAUSE", "1000"));
         long threadSleep  = Integer.parseInt(OSGiPluginProperties.getProperty("THREAD_SLEEP_BETWEEN_UNLOCKS", "50"));
@@ -57,6 +58,10 @@ public class Activator extends GenericBundleActivator {
     public void stop ( BundleContext context ) throws Exception {
         //Unregister all the bundle services
     	
+        
+        QuartzUtils.removeJob(JOB_NAME, JOB_GROUP);
+        
+        
         unregisterServices( context );
         unpublishBundleServices();
     }

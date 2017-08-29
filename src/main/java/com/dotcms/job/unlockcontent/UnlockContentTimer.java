@@ -23,11 +23,12 @@ public class UnlockContentTimer implements StatefulJob {
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
 
+
+	    
 		Logger.info(this, "Timed Unlock: ------------------------------------------");
-		String unlockAfter = (String) context.get("UNLOCK_AFTER_SECONDS");
-        int limit  = (Integer) context.get("SQL_LIMIT_CLAUSE");
-        
-        long threadSleep  = (Long) context.get("THREAD_SLEEP_BETWEEN_UNLOCKS");
+		String unlockAfter = (String) context.getMergedJobDataMap(). get("UNLOCK_AFTER_SECONDS");
+        int limit  = (Integer) context.getMergedJobDataMap().get("SQL_LIMIT_CLAUSE");
+        long threadSleep  = (Long) context.getMergedJobDataMap().get("THREAD_SLEEP_BETWEEN_UNLOCKS");
 		Calendar cal = Calendar.getInstance();
 
 		int seconds = Integer.parseInt(unlockAfter);
