@@ -24,6 +24,7 @@ jar {
         attributes (
             'Bundle-Activator': 'com.dotcms.job.unlockcontent.Activator',
             'Override-Classes' : 'com.dotcms.job.unlockcontent.UnlockContentTimer,com.dotcms.job.unlockcontent.OSGiPluginProperties',
+      
         )
     }
 }
