@@ -6,7 +6,7 @@ import java.util.Map;
 
 import org.quartz.CronTrigger;
 
-import com.dotcms.repackage.org.osgi.framework.BundleContext;
+import org.osgi.framework.BundleContext;
 import com.dotmarketing.osgi.GenericBundleActivator;
 import com.dotmarketing.quartz.CronScheduledTask;
 
