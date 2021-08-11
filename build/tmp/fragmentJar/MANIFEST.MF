@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-Description: dotCMS - Timed Contentlet Unlock fragment
+Bundle-SymbolicName: plugin-dotcms-timed-content-unlock.fragment
+Export-Package: com.dotmarketing.business;version=0,com.dotmarketing.c
+ ommon.db;version=0,com.dotmarketing.db;version=0,com.dotmarketing.exc
+ eption;version=0,com.dotmarketing.loggers;version=0,com.dotmarketing.
+ osgi;version=0,com.dotmarketing.portlets.contentlet.business;version=
+ 0,com.dotmarketing.portlets.contentlet.model;version=0,com.dotmarketi
+ ng.quartz;version=0,com.dotmarketing.servlets;version=0,com.dotmarket
+ ing.util;version=0,com.google.common.collect;version=0,com.liferay.po
+ rtal.model;version=0,net.bytebuddy;version=0,net.bytebuddy.agent;vers
+ ion=0,net.bytebuddy.dynamic;version=0,net.bytebuddy.dynamic.loading;v
+ ersion=0,org.apache.logging.log4j;version=0,org.apache.logging.log4j.
+ core;version=0,org.apache.logging.log4j.spi;version=0,org.osgi.framew
+ ork;version=0,org.quartz;version=0
+Bundle-Name: dotCMS - Timed Contentlet Unlock
+Bundle-Version: 2.0
+Bundle-ManifestVersion: 2
+Bundle-Vendor: dotCMS
+Bundle-DocURL: https://dotcms.com/
+Fragment-Host: system.bundle; extension:=framework
+

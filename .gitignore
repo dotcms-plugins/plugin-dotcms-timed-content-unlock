@@ -1,0 +1,20 @@
+# config/log files   #
+######################
+bin/*.sh
+*.log
+.classpath
+.settings/*
+.project
+.idea/
+.vscode
+*.iml
+*.ipr
+*.iws
+.gradle
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
