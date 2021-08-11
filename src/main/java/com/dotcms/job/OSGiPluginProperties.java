@@ -1,15 +1,3 @@
-/******************************************************************************* 
- *  Copyright 2008-2010 Amazon Technologies, Inc.
- *  Licensed under the Apache License, Version 2.0 (the "License"); 
- *  
- *  You may not use this file except in compliance with the License. 
- *  You may obtain a copy of the License at: http://aws.amazon.com/apache2.0
- *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
- *  CONDITIONS OF ANY KIND, either express or implied. See the License for the 
- *  specific language governing permissions and limitations under the License.
- * ***************************************************************************** 
- */
-
 package com.dotcms.job;
 
 import java.io.FileNotFoundException;
@@ -18,37 +6,60 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * This class reads configuration values from config.properties file.
+ * This utility class reads the configuration values specified in the {@code plugin.properties} file. Such parameters
+ * are passed down to the Quartz job that take care of unlocking Contentlets throughout dotCMS.
+ *
+ * @author dotCMS
+ * @since Aug 10, 2021
  */
 public class OSGiPluginProperties {
-	private static final String PROPERTY_FILE_NAME = "plugin.properties";
-	private static Properties properties;
-	static {
-		properties = new Properties();
-		try {
-			InputStream in = OSGiPluginProperties.class.getResourceAsStream("/" + PROPERTY_FILE_NAME);
-			if (in == null) {
-				in = OSGiPluginProperties.class.getResourceAsStream("/com/dotcms/job/" + PROPERTY_FILE_NAME);
-				if (in == null) {
-					throw new FileNotFoundException(PROPERTY_FILE_NAME + " not found");
-				}
-			}
-			properties.load(in);
-		} catch (FileNotFoundException e) {
-			System.out.println("FileNotFoundException : " + PROPERTY_FILE_NAME + " not found");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IOException : Can't read " + PROPERTY_FILE_NAME);
-			e.printStackTrace();
-		}
-	}
 
-	public static String getProperty(String key) {
-		return properties.getProperty(key);
-	}
+    private static final String PROPERTY_FILE_NAME = "plugin.properties";
+    private static Properties properties;
 
-	public static String getProperty(String key, String defaultValue) {
-		String x = properties.getProperty(key);
-		return (x == null) ? defaultValue : x;
-	}
+    static {
+        properties = new Properties();
+        try {
+            InputStream in = OSGiPluginProperties.class.getResourceAsStream("/" + PROPERTY_FILE_NAME);
+            if (in == null) {
+                in = OSGiPluginProperties.class.getResourceAsStream("/com/dotcms/job/" + PROPERTY_FILE_NAME);
+                if (in == null) {
+                    throw new FileNotFoundException(PROPERTY_FILE_NAME + " not found");
+                }
+            }
+            properties.load(in);
+        } catch (final FileNotFoundException e) {
+            System.out.println("FileNotFoundException: " + PROPERTY_FILE_NAME + " not found");
+            e.printStackTrace();
+        } catch (final IOException e) {
+            System.out.println("IOException: Can't read " + PROPERTY_FILE_NAME);
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Returns the value for the specified property key.
+     *
+     * @param key The property's key.
+     *
+     * @return The property's value.
+     */
+    public static String getProperty(final String key) {
+        return properties.getProperty(key);
+    }
+
+    /**
+     * Returns the value for the specified property key. If such a property does not exist, the the default value will
+     * be returned instead.
+     *
+     * @param key          The property's key.
+     * @param defaultValue The property's default value.
+     *
+     * @return The property's value or its default value.
+     */
+    public static String getProperty(final String key, final String defaultValue) {
+        final String value = properties.getProperty(key);
+        return (value == null) ? defaultValue : value;
+    }
+
 }
