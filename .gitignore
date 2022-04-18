@@ -18,3 +18,4 @@ bin/*.sh
 ehthumbs.db
 Icon?
 Thumbs.db
+/build/
