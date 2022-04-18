@@ -1,7 +1,3 @@
-# Archived
-
-New home: https://github.com/dotcms-plugins/plugin-dotcms-timed-content-unlock
-
 ## Timed Unlocking of Content
 
 Users are forgetful.  They start to edit a piece of content and then leave it, forgetting to unlock it.  This leads to orphan content that can only be unlocked by an administrator.
