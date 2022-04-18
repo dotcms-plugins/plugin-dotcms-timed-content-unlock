@@ -30,7 +30,7 @@ jar {
         )
     }
 }
-jar.finalizedBy 'fragmentJar'
+//jar.finalizedBy 'fragmentJar'
 
 /////////////////////////
 //Fragment jar

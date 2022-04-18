@@ -1,8 +1,0 @@
-Manifest-Version: 1.0
-Bundle-Description: dotCMS - Timed Contentlet Unlock
-Bundle-Activator: com.dotcms.job.Activator
-Bundle-Vendor: dotCMS
-Bundle-DocURL: https://dotcms.com/
-Import-Package: *;version=0
-Override-Classes: 
-
