@@ -50,14 +50,14 @@ public class Activator extends GenericBundleActivator {
         Instant now = Instant.now();
         
         Instant previousRun = cron.getPrevFireTime(Date.from(now)).toInstant();
-        Instant nextRun = cron.getNextValidTimeAfter(Date.from(now)).toInstant();
+        Instant nextRun = cron.getNextValidTimeAfter(Date.from(previousRun)).toInstant();
 
-        long delay = Duration.between(previousRun, now).getSeconds();
-        long runEvery = Duration.between(previousRun, nextRun).getSeconds();
+        Duration delay = Duration.between(previousRun, now);
+        Duration runEvery = Duration.between(previousRun, nextRun);
         
-        Logger.info(this.getClass(), "Starting Content Unlock Job. Runs every:" + runEvery + " seconds. Next run @ " + nextRun);
+        Logger.info(this.getClass(), "Starting Content Unlock Job. Runs every:" + runEvery.getSeconds() + " seconds. Next run @ " + nextRun);
         
-        scheduler.scheduleAtFixedRate(runner, delay, runEvery, TimeUnit.SECONDS);
+        scheduler.scheduleAtFixedRate(runner, delay.getSeconds(), runEvery.getSeconds(), TimeUnit.SECONDS);
 
 
 
