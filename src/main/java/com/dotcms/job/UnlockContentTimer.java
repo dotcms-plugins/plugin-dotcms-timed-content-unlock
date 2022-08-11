@@ -58,7 +58,6 @@ public class UnlockContentTimer implements Runnable {
     final int threadSleepBetweenLocks = Try
                     .of(() -> Integer.parseInt(OSGiPluginProperties.getProperty("THREAD_SLEEP_BETWEEN_UNLOCKS"))).getOrElse(200);
 
-    @CloseDB
     @Override
     public void run() {
 
@@ -107,7 +106,7 @@ public class UnlockContentTimer implements Runnable {
                 
             }
             Logger.info(this.getClass(), "dotCMS Timed Unlock Job: Unlocked " + unlockedContentlets + " contentlets");
-        } catch (final Exception e) {
+        } catch (final Throwable e) {
             Logger.error(this.getClass(),
                             String.format("An error occurred unlocking content '%s': %s", contentletInode, e.getMessage()), e);
         } finally {
@@ -116,7 +115,7 @@ public class UnlockContentTimer implements Runnable {
         }
     }
 
-    @CloseDB
+
     final boolean unlockContentlet(final String inode) {
         if (inode == null) {
             return false;
