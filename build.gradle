@@ -3,7 +3,7 @@ plugins {
 }
 
 sourceCompatibility = '1.8'
-version = '2.0'
+version = '22.03'
 
 repositories {
     maven { url "http://repo.dotcms.com/artifactory/libs-release" }
