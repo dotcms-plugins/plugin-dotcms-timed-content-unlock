@@ -3,14 +3,14 @@ plugins {
 }
 
 sourceCompatibility = '1.8'
-version = '22.03'
+version = '2.0'
 
 repositories {
     maven { url "http://repo.dotcms.com/artifactory/libs-release" }
 }
 
 dependencies {
-    compile('com.dotcms:dotcms:22.03') { transitive = true }
+    compile('com.dotcms:dotcms:5.1.6') { transitive = true }
 }
 
 import java.util.jar.*
@@ -24,13 +24,13 @@ jar {
                 'Bundle-Vendor': 'dotCMS',
                 'Bundle-Description': 'dotCMS - Timed Contentlet Unlock',
                 'Bundle-DocURL': 'https://dotcms.com/',
-                'Bundle-Activator': 'com.dotcms.job.Activator',
+                'Bundle-Activator': 'com.dotcms.job.unlockcontent.Activator',
                 'Override-Classes': '',
                 'Import-Package': '*;version=0'
         )
     }
 }
-//jar.finalizedBy 'fragmentJar'
+jar.finalizedBy 'fragmentJar'
 
 /////////////////////////
 //Fragment jar
@@ -99,5 +99,5 @@ task fragmentJar(type: Jar) {
 fragmentJar.dependsOn 'readManifesttAttributes'
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.10.2'
+    gradleVersion = '4.2'
 }
